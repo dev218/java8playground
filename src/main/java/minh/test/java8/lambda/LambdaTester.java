@@ -1,8 +1,8 @@
 package minh.test.java8.lambda;
 
-public class Java8Tester {
+public class LambdaTester {
     public static void main(String args[]) {
-        Java8Tester tester = new Java8Tester();
+        LambdaTester tester = new LambdaTester();
 
         //with type declaration
         MathOperation addition = (int a, int b) -> a + b;
