@@ -1,4 +1,4 @@
-package minh.test.repeating.annotation;
+package minh.test.repeatingannotation;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Repeatable;
