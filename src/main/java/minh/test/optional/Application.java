@@ -3,7 +3,7 @@ package minh.test.optional;
 import java.util.Optional;
 
 public class Application {
-    class Outer {
+    public class Outer {
         Nested nested = new Nested();
 
         Nested getNested() {
@@ -20,8 +20,8 @@ public class Application {
     }
 
     class Inner {
-        String foo = null;
-        //String foo = "tata";
+        //String foo = null;
+        String foo = "tata";
 
         String getFoo() {
             return foo;
@@ -29,11 +29,25 @@ public class Application {
     }
 
     public void test() {
-        Optional.of(new Outer())
-                .map(Outer::getNested)
+
+        // OLD WAY OF CHECKING NULL
+        Outer outer = new Outer();
+        String str = null;
+        if (outer != null &&
+                outer.getNested() != null
+                && outer.getNested().getInner() != null
+                && outer.getNested().getInner().getFoo() != null) {
+            str = outer.getNested().getInner().getFoo();
+        } else {
+            str = "valueNotFound";
+        }
+
+        // NEW WAY WITH OPTIONAL
+        str = Optional.of(new Outer())
+                .map(Outer::getNested) //.map(o -> o.getNested())
                 .map(Nested::getInner)
                 .map(Inner::getFoo)
-                .ifPresent(System.out::println);
+                .orElse("valueNotFound");
     }
 
     public static void main(String[] args) {

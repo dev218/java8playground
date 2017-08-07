@@ -1,4 +1,4 @@
-package minh.test.method.reference;
+package minh.test.methodreference;
 
 import java.util.Arrays;
 import java.util.List;
