@@ -14,12 +14,12 @@ public class Car {
         System.out.println("Collide to " + anotherCar.toString());
     }
 
-    public void follow(final Car anotherCar) {
-        System.out.println(this.toString() + " following " + anotherCar.toString());
-    }
-
     public void repair() {
         System.out.println("Repaired " + this.toString());
+    }
+
+    public void follow(final Car anotherCar) {
+        System.out.println(this.toString() + " following " + anotherCar.toString());
     }
 
     public static void main(String[] args) {
