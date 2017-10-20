@@ -1,17 +1,19 @@
 package minh.test.builtinFunctionalInf;
 
-public class Function {
+import java.util.function.Function;
+
+/**
+ * Function take an input and produce a result
+ */
+
+public class FunctionTest {
 
     public static void main(String[] args) {
-        Function test = new Function();
-        test.test();
-    }
+        Function<String, Integer> toInt = s -> Integer.valueOf(s);
+        Function<String, Integer> toInt2 = Integer::valueOf;
 
-    private void test() {
-        java.util.function.Function<String, Integer> toInt = s -> Integer.valueOf(s);
-
-        java.util.function.Function<Outer, Nested> getInner = o -> o.getNested();
-        java.util.function.Function<Outer, Nested> getInner2 = Outer::getNested;
+        Function<Outer, Nested> getInner = o -> o.getNested();
+        Function<Outer, Nested> getInner2 = Outer::getNested;
     }
 
     public class Outer {
